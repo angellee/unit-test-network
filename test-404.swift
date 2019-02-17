@@ -1,16 +1,16 @@
-import XCTest
+// this test uses the following pod
 // https://github.com/dasdom/DHURLSessionStub/blob/master/Pod/Classes/DHURLSessionMock.swift
-class NetworkTests: XCTestCase {
-    
+
+
+import XCTest
+
+class NetworkTests: XCTestCase {    
     var sessionMock: URLSessionMock!
     let url = URL(string: "/api/someData")
     
     override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
+        super.setUp()        
         let urlResponse = HTTPURLResponse(url: url!, statusCode: 404, httpVersion: nil, headerFields: nil)
-        
         sessionMock = URLSessionMock(data: nil, response: urlResponse, error: NetworkError.NotFound)
     }
     
